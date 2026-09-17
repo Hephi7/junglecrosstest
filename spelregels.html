@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jungle Cross — Spelregels</title>
+<style>
+  :root{
+    --bg:#0f1712;
+    --panel:#16211a;
+    --panel-2:#1c2a21;
+    --border:#2c3f30;
+    --text:#e9efe7;
+    --text-dim:#a9b7ac;
+    --green:#4caf50;
+    --red:#e53935;
+    --blue:#2196f3;
+    --yellow:#fdd835;
+    --accent:#8bc34a;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Segoe UI", Verdana, Arial, sans-serif;
+    line-height:1.55;
+  }
+  .wrap{
+    max-width:820px;
+    margin:0 auto;
+    padding:0 20px 60px;
+  }
+  header{
+    padding:48px 20px 28px;
+    text-align:center;
+    background:
+      radial-gradient(ellipse at top, rgba(139,195,74,0.18), transparent 60%),
+      linear-gradient(180deg, #142018, #0f1712);
+    border-bottom:1px solid var(--border);
+  }
+  header h1{
+    margin:0 0 6px;
+    font-size:2.4em;
+    letter-spacing:0.5px;
+    color:#fff;
+  }
+  header p{
+    margin:0;
+    color:var(--text-dim);
+    font-size:1.05em;
+  }
+  h2{
+    color:var(--accent);
+    border-bottom:1px solid var(--border);
+    padding-bottom:8px;
+    margin-top:44px;
+    font-size:1.4em;
+  }
+  h3{
+    color:#fff;
+    margin-bottom:6px;
+    font-size:1.1em;
+  }
+  p{color:var(--text);}
+  .lead{
+    font-size:1.05em;
+    color:var(--text-dim);
+  }
+  .card{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:18px 20px;
+    margin:14px 0;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+  @media (max-width:600px){
+    .grid{grid-template-columns:1fr;}
+  }
+  .resource{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:14px 16px;
+  }
+  .resource .icon{
+    font-size:1.6em;
+    line-height:1;
+  }
+  .resource h3{margin:0 0 4px;font-size:1.02em;}
+  .resource p{margin:0;color:var(--text-dim);font-size:0.95em;}
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:10px 0;
+    font-size:0.96em;
+  }
+  th,td{
+    text-align:left;
+    padding:9px 10px;
+    border-bottom:1px solid var(--border);
+  }
+  th{color:var(--text-dim);font-weight:600;}
+  .pill{
+    display:inline-block;
+    padding:2px 10px;
+    border-radius:999px;
+    font-size:0.82em;
+    font-weight:600;
+    color:#0f1712;
+  }
+  .pill.attack{background:var(--red);color:#fff;}
+  .pill.boost, .pill.ecology{background:var(--green);}
+  .pill.reaction{background:var(--blue);color:#fff;}
+  .pill.permit{background:var(--yellow);}
+  .legend{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 20px;
+    margin:12px 0 4px;
+  }
+  .legend span{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:0.92em;
+    color:var(--text-dim);
+  }
+  .swatch{
+    width:14px;height:14px;border-radius:4px;display:inline-block;
+  }
+  .note{
+    background:var(--panel-2);
+    border-left:3px solid var(--accent);
+    padding:12px 16px;
+    border-radius:6px;
+    color:var(--text-dim);
+    font-size:0.95em;
+    margin:16px 0;
+  }
+  ol, ul{padding-left:1.3em;}
+  li{margin:6px 0;}
+  footer{
+    margin-top:56px;
+    padding-top:28px;
+    border-top:1px solid var(--border);
+    text-align:center;
+  }
+  .play-link{
+    display:inline-block;
+    margin-top:10px;
+    padding:14px 34px;
+    background:var(--accent);
+    color:#0f1712;
+    font-weight:700;
+    font-size:1.1em;
+    text-decoration:none;
+    border-radius:10px;
+    transition:background 0.15s ease;
+  }
+  .play-link:hover{background:#9ccc65;}
+  footer p{color:var(--text-dim);font-size:0.9em;margin-top:14px;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🌳 Jungle Cross</h1>
+  <p>Spelregels voor nieuwe spelers</p>
+</header>
+
+<div class="wrap">
+
+  <p class="lead">
+    Jungle Cross is een hex-tegel bordspel voor 2 tot 4 spelers. Je bouwt en laat je stad groeien
+    op een gedeeld zeshoekig bord, beheert je voorraad hout, eten en geld, en gebruikt kaarten om
+    je tegenstanders te dwarsbomen of jezelf een voordeel te geven. Het bos in het midden van het
+    bord is van iedereen samen — hoe je ermee omgaat heeft gevolgen voor alle spelers.
+  </p>
+
+  <div class="note">
+    Dit spel is nog in ontwikkeling. De basis — bord, acties, grondstoffen en kaarten — is speelbaar,
+    maar er is bijvoorbeeld nog geen vaste eindconditie: spelers spelen door en proberen hun stad zo
+    goed mogelijk te laten groeien terwijl ze het bos in balans houden.
+  </div>
+
+  <h2>Het bord</h2>
+  <p>
+    Het speelveld is een groot zeshoekig rooster van kleinere hex-tegels: bos, akkerland en een paar
+    rivieren die er doorheen lopen. De tegel in het midden toont de gedeelde <strong>Forest Score</strong>
+    (start op 90/100) — een graadmeter voor de gezondheid van het bos, die door iedereens acties
+    en sommige kaarten beïnvloed wordt.
+  </p>
+
+  <h2>Opstelling</h2>
+  <ol>
+    <li>Elke speler begint met <strong>5 geld</strong>, <strong>1 hout</strong> en <strong>1 eten</strong>, en trekt een starthand van <strong>5 kaarten</strong>.</li>
+    <li>Om beurt plaatst elke speler zijn stad op het bord. Een stad moet op een <strong>randtegel</strong> staan (de buitenste ring van het bord) en minstens <strong>2 tegels</strong> van elke andere stad verwijderd zijn.</li>
+    <li>Zodra iedereen zijn stad heeft geplaatst en bevestigd, begint de eerste speler zijn beurt.</li>
+  </ol>
+
+  <h2>Grondstoffen</h2>
+  <div class="grid">
+    <div class="resource">
+      <div class="icon">🪵</div>
+      <div><h3>Hout</h3><p>Kom je aan via beheerde bostegels of bos kappen. Geen opslaglimiet.</p></div>
+    </div>
+    <div class="resource">
+      <div class="icon">🍞</div>
+      <div><h3>Eten</h3><p>Kom je aan via akkers. Opslag is beperkt tot je voedselsilo-capaciteit — extra eten gaat verloren.</p></div>
+    </div>
+    <div class="resource">
+      <div class="icon">💰</div>
+      <div><h3>Geld</h3><p>Nodig om te bouwen en je stad te upgraden. Kom je aan via handel of gebouwen zoals het Commercieel centrum.</p></div>
+    </div>
+    <div class="resource">
+      <div class="icon">🏛️</div>
+      <div><h3>Schatkist</h3><p>Je totale geldvoorraad — geen limiet.</p></div>
+    </div>
+  </div>
+
+  <h2>Een beurt spelen</h2>
+  <p>Op jouw beurt kies je meestal <strong>één hoofdactie</strong>:</p>
+  <table>
+    <tr><th>Actie</th><th>Effect</th><th>Kost</th></tr>
+    <tr><td>Akker</td><td>Leg een akker aan op braakland → produceert eten</td><td>afstand tot je stad, in geld</td></tr>
+    <tr><td>Bos beheren</td><td>Beheer een bostegel → produceert hout, +1 Forest Score</td><td>1 geld</td></tr>
+    <tr><td>Bos kappen</td><td>Kap een bostegel voor eenmalig hout → −1 Forest Score</td><td>gratis</td></tr>
+    <tr><td>Gebouw bouwen</td><td>Commercieel centrum (passief geld), Zagerij (+1 hout bonus bij kappen), Industrie (zet hout om in geld)</td><td>afstand tot je stad, in geld</td></tr>
+    <tr><td>Stad upgraden</td><td>Ontgrendelt stad level 2 (Commercieel centrum, Zagerij, Industrie 2) en verhoogt je voedselcapaciteit</td><td>2 geld</td></tr>
+  </table>
+  <p>
+    Daarnaast kun je, los van je hoofdactie, altijd nog: je <strong>voedselsilo uitbreiden</strong>
+    (1 geld per uitbreiding), <strong>handelen</strong>, en een <strong>kaart spelen</strong> of
+    <strong>afleggen</strong> uit je hand.
+  </p>
+
+  <h3>Handelen</h3>
+  <p>Zit je krap in één grondstof? Op elk moment tijdens je beurt kun je ruilen:</p>
+  <ul>
+    <li><strong>2 hout → 1 geld</strong></li>
+    <li><strong>2 geld → 1 eten</strong></li>
+  </ul>
+
+  <h2>Kaarten</h2>
+  <p>
+    Je houdt een hand van maximaal <strong>5 kaarten</strong> bij. Elke kaart heeft een categorie,
+    herkenbaar aan de kleur van de rand:
+  </p>
+  <div class="legend">
+    <span><span class="swatch" style="background:var(--red)"></span> Attack — treft een tegenstander</span>
+    <span><span class="swatch" style="background:var(--green)"></span> Boost / Ecology — voordeel voor jezelf of het bos</span>
+    <span><span class="swatch" style="background:var(--blue)"></span> Reaction — speel je als reactie op iets dat gebeurt</span>
+    <span><span class="swatch" style="background:var(--yellow)"></span> Permit — negeert een normale beperking</span>
+  </div>
+
+  <table>
+    <tr><th>Kaart</th><th>Categorie</th><th>Effect</th></tr>
+    <tr><td>Fund Eco Warriors</td><td><span class="pill attack">attack</span></td><td>Gekozen speler mag volgende beurt geen bos kappen.</td></tr>
+    <tr><td>Illegal Wood Cutting</td><td><span class="pill attack">attack</span></td><td>Vernietig andermans bostegel — geen hout voor hen, Forest Score omlaag.</td></tr>
+    <tr><td>Rare Animal Found</td><td><span class="pill ecology">ecology</span></td><td>Maakt een bostegel voorgoed beschermd tegen kappen.</td></tr>
+    <tr><td>Pest Infestation</td><td><span class="pill attack">attack</span></td><td>Andermans akker produceert deze beurt geen eten.</td></tr>
+    <tr><td>Crop Manipulation</td><td><span class="pill boost">boost</span></td><td>Eigen akker produceert volgende beurt dubbel eten.</td></tr>
+    <tr><td>Timber Boom</td><td><span class="pill boost">boost</span></td><td>Eigen beheerd bos produceert volgende beurt dubbel hout.</td></tr>
+    <tr><td>Market Hype</td><td><span class="pill boost">boost</span></td><td>Commercieel centrum produceert deze beurt dubbel geld.</td></tr>
+    <tr><td>Tax Audit</td><td><span class="pill attack">attack</span></td><td>Andermans Commercieel centrum produceert volgende beurt geen geld.</td></tr>
+    <tr><td>Reforestation Grant</td><td><span class="pill ecology">ecology</span></td><td>Herstel een braakliggende tegel tot bos, +Forest Score.</td></tr>
+    <tr><td>Conservation Fund</td><td><span class="pill ecology">ecology</span></td><td>Betaal 1 geld om de Forest Score met 2 te verhogen.</td></tr>
+    <tr><td>Emergency Services / Firebreak / Irrigation Reserve</td><td><span class="pill reaction">reaction</span></td><td>Voorkom overstroming-, brand- of droogteschade op één tegel.</td></tr>
+    <tr><td>Emergency Imports</td><td><span class="pill reaction">reaction</span></td><td>Negeer eenmalig een dreigend hout- of voedseltekort.</td></tr>
+    <tr><td>Insurance</td><td><span class="pill reaction">reaction</span></td><td>Herstel een tegel die door een ramp vernietigd werd.</td></tr>
+    <tr><td>Community Action</td><td><span class="pill reaction">reaction</span></td><td>Annuleer een attack-kaart die tegen jou gespeeld wordt.</td></tr>
+    <tr><td>Commerce/Sawmill Permit</td><td><span class="pill permit">permit</span></td><td>Negeer de limiet van 1 Commercieel centrum / Zagerij.</td></tr>
+    <tr><td>Zoning Exception</td><td><span class="pill permit">permit</span></td><td>Negeer één plaatsingsbeperking deze beurt.</td></tr>
+    <tr><td>Local Investment</td><td><span class="pill boost">boost</span></td><td>Bouw deze beurt een gebouw voor 1 geld minder.</td></tr>
+    <tr><td>Green Building Code</td><td><span class="pill ecology">ecology</span></td><td>Bouw naast een bos, +1 Forest Score.</td></tr>
+    <tr><td>Short Supply Chain</td><td><span class="pill ecology">ecology</span></td><td>Commercieel centrum naast een akker én bos? +1 Forest Score.</td></tr>
+    <tr><td>Supply Blockade</td><td><span class="pill attack">attack</span></td><td>Eén producerende tegel van een tegenstander levert deze beurt niets op.</td></tr>
+  </table>
+
+  <h2>Seizoenen &amp; rampen</h2>
+  <p>
+    Elke ronde staat voor een seizoen, dat cyclisch doorloopt: <strong>Lente → Zomer → Herfst → Winter</strong>
+    en weer opnieuw. Elke beurt kan er willekeurig een ramp optreden die tegels zichtbaar treft
+    (overstroming, brand, droogte) — de bergen en de middelste tegel blijven altijd gespaard.
+    Reaction-kaarten laten je op zulke rampen inspelen.
+  </p>
+
+  <h2>Online / meerdere spelers</h2>
+  <p>
+    Naast lokaal spelen (hotseat, om beurt op hetzelfde scherm) ondersteunt Jungle Cross ook een
+    gedeelde online spelstand via de knop <strong>"Online spel laden"</strong> op het startscherm.
+  </p>
+
+</div>
+
+<footer>
+  <p>Klaar om te spelen?</p>
+  <a class="play-link" href="junglecross.html">▶ Speel Jungle Cross</a>
+  <p>Jungle Cross is de digitale opvolger van Rimboe Cross.</p>
+</footer>
+
+</body>
+</html>
